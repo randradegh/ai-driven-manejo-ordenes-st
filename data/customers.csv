@@ -1,0 +1,6 @@
+customer_id,name,email,location
+customer_14,John Doe,john@example.com,domestic
+customer_15,Jane Smith,jane@example.com,international
+customer_16,Bob Wilson,bob@example.com,local
+customer_17,Alice Brown,alice@example.com,domestic
+customer_18,Charlie Davis,charlie@example.com,international 
