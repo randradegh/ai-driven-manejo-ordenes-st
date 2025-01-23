@@ -43,8 +43,8 @@ order_management/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd order-management
+git clone https://github.com/schmitech/ai-driven-order-management.git
+cd ai-driven-order-management
 ```
 
 2. Create and activate a virtual environment:
@@ -116,21 +116,6 @@ Sample customer data includes:
 - Locations (local/domestic/international)
 - Contact information
 
-## Customization
-
-You can customize the system by:
-1. Modifying the data in `data/*.csv` files
-2. Adjusting shipping rates in `compute_shipping()`
-3. Adding new workflow nodes in `nodes.py`
-4. Extending the state definition in `state.py`
-
-## Troubleshooting
-
-Common issues and solutions:
-1. **Import Errors**: Make sure to run the application from the project root directory using `python -m src.main`
-2. **API Key Issues**: Ensure your .env file is in the root directory and contains the correct API key
-3. **Model Access**: Verify you have access to GPT-4 Turbo in your OpenAI account
-4. **JSON Parsing Errors**: Check the debug output if you encounter parsing issues in the cancel order flow
 
 ## Cleaning the Project
 
