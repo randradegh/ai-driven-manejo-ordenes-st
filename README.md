@@ -22,7 +22,7 @@ Based on Kshitij Kutumbe's article [LangGraph AI agents : Building a Dynamic Ord
 ## Project Structure
 
 ```
-order_management/
+ai-driven-order-management/
 ├── data/
 │   ├── inventory.csv      # Sample inventory data
 │   └── customers.csv      # Sample customer data
