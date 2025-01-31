@@ -7,8 +7,8 @@ from langgraph.prebuilt import ToolNode
 from langgraph.graph import MessagesState
 from langgraph.graph import END
 import pandas as pd
-from src.tools import cancel_order
-from src.config import llm
+from .tools import cancel_order
+from .config import llm
 
 # Load data
 inventory_df = pd.read_csv("data/inventory.csv")
@@ -53,9 +53,9 @@ def check_inventory(state: MessagesState) -> MessagesState:
         return {"error": "Missing 'item_id' or 'quantity'."}
 
     if inventory.get(item_id, {}).get("stock", 0) >= quantity:
-        print("IN STOCK")
-        return {"status": "In Stock"}
-    return {"query": state, "order_status": "Out of Stock"}
+        print("EN STOCK")
+        return {"status": "En Stock"}
+    return {"query": state, "order_status": "Fuera de Stock"}
 
 def compute_shipping(state: MessagesState) -> MessagesState:
     """Calculate shipping costs."""
@@ -83,7 +83,7 @@ def compute_shipping(state: MessagesState) -> MessagesState:
     total_weight = weight_per_item * quantity
     rates = {"local": 5, "domestic": 10, "international": 20}
     cost = total_weight * rates.get(location, 10)
-    print(f"Cost: ${cost:.2f}, Location: {location}")
+    print(f"Costo: ${cost:.2f}, Ubicación: {location}")
 
     return {"query": state, "cost": f"${cost:.2f}"}
 
@@ -106,8 +106,8 @@ def process_payment(state: MessagesState) -> MessagesState:
     if not cost:
         return {"error": "Missing 'amount'."}
     
-    print(f"PAYMENT PROCESSED: {cost} and order successfully placed!")
-    payment_outcome = random.choice(["Success", "Failed"])
+    print(f"PAGO PROCESADO: {cost} y pedido realizado con éxito!")
+    payment_outcome = random.choice(["Éxito", "Fallido"])
     return {"payment_status": payment_outcome}
 
 def call_model_2(state: MessagesState):

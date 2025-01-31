@@ -1,6 +1,13 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
+import sys
+from pathlib import Path
+
+# Añadir el directorio raíz al path de Python
+root_dir = Path(__file__).parent
+sys.path.append(str(root_dir))
+
 from src.workflow import create_workflow
 
 def main():
@@ -56,4 +63,4 @@ def main():
     """)
 
 if __name__ == "__main__":
-    main() 
+    main()

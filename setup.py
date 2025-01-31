@@ -5,11 +5,12 @@ setup(
     version="0.1",
     packages=find_packages(),
     install_requires=[
-        "langchain",
-        "langgraph",
-        "langchain-openai",
+        "langchain>=0.1.0",
+        "langgraph>=0.0.15",
+        "langchain-openai>=0.0.2.post1",
         "pandas",
         "python-dotenv",
-        "ipython"
+        "ipython",
+        "streamlit"
     ]
 ) 

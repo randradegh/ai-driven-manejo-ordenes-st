@@ -1,8 +1,8 @@
-from src.nodes import (
+from .nodes import (
     categorize_query, check_inventory, compute_shipping,
     process_payment, call_model_2, call_tools_2, route_query_1
 )
-from src.tools import cancel_order
+from .tools import cancel_order
 from langgraph.graph import StateGraph, MessagesState, START, END
 from langgraph.prebuilt import ToolNode
 
