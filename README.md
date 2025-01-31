@@ -28,18 +28,18 @@ Basado en el artículo de Kshitij Kutumbe [LangGraph AI agents : Building a Dyna
 ## Estructura del Proyecto
 
 ```
-ai-driven-order-management/
+ai-driven-order-management-st/
 ├── data/
-│   ├── inventory.csv      # Sample inventory data
-│   └── customers.csv      # Sample customer data
+│   ├── inventory.csv      # Datos de muestra del inventario
+│   └── customers.csv      # Datos de muestra de clientes
 ├── src/
 │   ├── __init__.py
-│   ├── config.py         # Shared configuration and LLM setup
-│   ├── main.py           # Entry point
-│   ├── tools.py          # LangChain tools
-│   ├── nodes.py          # Workflow nodes
-│   ├── state.py          # State definitions
-│   └── workflow.py       # Workflow graph definition
+│   ├── config.py         # Configuración compartida y configuración de LLM
+│   ├── tools.py          # Herramientas de LangChain
+│   ├── nodes.py          # Nodos del flujo de trabajo
+│   ├── state.py          # Definiciones de estado
+│   └── workflow.py       # Definición del grafo de flujo de trabajo
+├── main.py               # Punto de entrada (Streamlit)
 ├── requirements.txt
 ├── setup.py
 └── README.md
@@ -47,10 +47,16 @@ ai-driven-order-management/
 
 ## Configuración
 
-1. Clonar el repositorio:
+1. Iniciar un nuevo proyecto:
 ```bash
-git clone https://github.com/schmitech/ai-driven-order-management.git
-cd ai-driven-order-management
+# Opción 1: Clonar el repositorio
+git clone https://github.com/randradegh/ai-driven-order-management-st.git
+cd ai-driven-order-management-st
+
+# Opción 2: Iniciar desde cero
+git init
+git add .
+git commit -m "Commit inicial"
 ```
 
 2. Crear y activar un entorno virtual:
