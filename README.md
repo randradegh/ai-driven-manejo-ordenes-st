@@ -50,109 +50,16 @@ ai-driven-order-management-st/
 1. Iniciar un nuevo proyecto:
 ```bash
 # Opción 1: Clonar el repositorio
-git clone https://github.com/randradegh/ai-driven-order-management-st.git
-cd ai-driven-order-management-st
+git clone https://github.com/randradegh/ai-driven-manejo-ordenes-st.git
+cd ai-driven-manejo-ordenes-st
 
 # Opción 2: Iniciar desde cero
 git init
 git add .
 git commit -m "Commit inicial"
+git remote add origin https://github.com/randradegh/ai-driven-manejo-ordenes-st.git
+git push -u origin main
 ```
 
 2. Crear y activar un entorno virtual:
-```bash
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
 ```
-
-3. Instalar dependencias:
-```bash
-pip install -r requirements.txt
-pip install -e .
-```
-
-4. Crear un archivo `.env` en el directorio raíz y añadir tu clave API de OpenAI:
-```
-OPENAI_API_KEY=tu_clave_api_aquí
-```
-
-Nota: Asegúrate de tener acceso a GPT-4 Turbo ya que el sistema utiliza el modelo `gpt-4-turbo-preview`.
-
-## Ejecutar la Aplicación
-
-Ejecuta la aplicación Streamlit desde el directorio raíz del proyecto:
-
-```bash
-streamlit run main.py
-```
-
-La aplicación ejecutará dos casos de prueba:
-1. Cancelación de pedido: "Deseo cancelar el pedido con order_id 223"
-2. Nuevo pedido: "customer_id: customer_14 : Deseo realizar un pedido del item_51 con cantidad 4 y envío nacional"
-
-## Cómo Funciona
-
-El sistema utiliza un flujo de trabajo basado en grafos con varios componentes clave:
-
-### 1. Configuración
-- Configuración centralizada en `config.py`
-- Gestión de variables de entorno
-- Instancia LLM compartida usando GPT-4 Turbo
-
-### 2. Gestión de Estado
-- Rastrea detalles del pedido, estado del inventario, costos de envío y estado del pago
-- Mantiene el historial de conversación y el progreso del flujo de trabajo
-
-### 3. Nodos del Flujo de Trabajo
-- `categorize_query`: Determina la intención del usuario (nuevo pedido/cancelación)
-- `check_inventory`: Verifica la disponibilidad del artículo
-- `compute_shipping`: Calcula costos de envío basados en ubicación y peso
-- `process_payment`: Simula el procesamiento del pago
-- `cancel_order`: Maneja las solicitudes de cancelación de pedidos
-
-### 4. Lógica Condicional
-- Dirige las solicitudes a los manejadores apropiados según la intención del usuario
-- Gestiona la ramificación del flujo de trabajo para diferentes escenarios
-
-## Datos de Muestra
-
-### Datos de Inventario
-El sistema incluye datos de muestra de inventario con:
-- IDs de artículos
-- Niveles de stock
-- Pesos de artículos
-- Precios
-
-### Datos de Clientes
-Los datos de muestra de clientes incluyen:
-- IDs de clientes
-- Ubicaciones (local/nacional/internacional)
-- Información de contacto
-
-## Limpieza del Proyecto
-
-Este script asegura una instalación limpia eliminando todos los archivos compilados de Python, artefactos de construcción y el entorno virtual antes de crear una configuración nueva.
-
-```bash
-# Hacer el script ejecutable
-chmod +x clean.sh
-
-# Ejecutar el script de limpieza
-./clean.sh
-```
-
-## Contribuir
-
-Siéntete libre de enviar issues, hacer fork del repositorio y crear pull requests para cualquier mejora.
-
-## Licencia
-
-[Apache 2.0](LICENSE)
-
-## Agradecimientos
-
-Este proyecto utiliza:
-- [LangGraph](https://www.langchain.com/langgraph) para la orquestación del flujo de trabajo
-- [LangChain](https://www.langchain.com/) para la integración con LLM
-- [Streamlit](https://streamlit.io/) para la interfaz web
-- OpenAI GPT-4 Turbo para el procesamiento del lenguaje natural
